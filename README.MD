@@ -1,16 +1,15 @@
-# Project Title
+# University of Victoria Engineering Competition 2024
+# Homeless Kittens
 
-University of Victoria Engineering Competition 2024
 ## Description
 
-An in-depth paragraph about your project and overview of use.
+A game to improve ones reaction time, on-the-fly decision making, and collaboration with others. A grid is created, and is populated with an entrance tunnel, homes (of a certain color), and conveyor belts. At a random time, a kitten (of a certain color) is popped out of the entrance tunnel, and follows the direction of the converyor belt. Switches exist, and are the main thing the player interacts with. These switches change the direction of a conveyor belt. By using these switches the player makes sure the kittens go to the right home. If the player fails at this, the game ends. As the game progresses, more homes, switches and kittens populate the game. A multiplayer option is available, where two players, play on the same board, but each player only has contol over certain switches. Ensuring the necessity for collaboration inorder to win. Created for the University of Victoria Engineering Competition. 
 
 ## Getting Started
-
+DO LATER
 ### Dependencies
 
-* Describe any prerequisites, libraries, OS version, etc., needed before installing program.
-* ex. Windows 10
+* Python 3.11, Pygame, Numpy
 
 ### Installing
 
@@ -34,22 +33,14 @@ command to run if program contains helper info
 
 ## Authors
 
-Contributors names and contact info
+Contributors
 
-ex. Dominique Pizzie  
-ex. [@DomPizzie](https://twitter.com/dompizzie)
+Abil - https://github.com/abil-nrg
+Ali - https://github.com/ali-gaineshev
+Ngan - https://github.com/nlhngan
+Franklin - https://github.com/FranklinJiaChen
 
-## Version History
 
-* 0.2
-    * Various bug fixes and optimizations
-    * See [commit change]() or See [release history]()
-* 0.1
-    * Initial Release
-
-## License
-
-This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details
 
 ## Acknowledgments
 

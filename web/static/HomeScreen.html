@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homeless Kittens</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+    }
+    #gameCanvas {
+      display: none;
+      border: 2px solid #333;
+      background-color: #fff;
+    }
+    .home-screen {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-image: url('./homescreen.jpg'); 
+      background-size: cover; 
+      background-position: center; 
+      background-repeat: no-repeat;
+      text-align: center;
+      color: white;
+    }
+    .button {
+      padding: 10px 20px;
+      font-size: 18px;
+      background-color: #007BFF;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      margin: 10px;
+    }
+    .button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div id="homeScreen" class="home-screen">
+    <h1>Homeless Kittens</h1>
+    <button class="button" onclick="game.startMultiplayer()">Multiplayer</button>
+    <button class="button" onclick="game.startSinglePlayer()">Single Player</button>
+    <audio id="clickSound" src="./sounds/meow1.mp3" preload="auto"></audio>
+  </div>
+  <canvas id="gameCanvas" width="1440" height="810"></canvas>
+
+  <script>
+    class Game {
+      constructor() {
+        this.canvas = document.getElementById("gameCanvas");
+        this.ctx = this.canvas.getContext("2d");
+        this.homeScreen = document.getElementById("homeScreen");
+        this.isRunning = false;
+      }
+
+      startMultiplayer() {
+        document.getElementById("clickSound").play();
+        this.startGame("Multiplayer");
+      }
+
+      startSinglePlayer() {
+        document.getElementById("clickSound").play();
+        this.startGame("Single Player");
+      }
+
+      startGame(mode) {
+        this.homeScreen.style.display = "none";
+        this.canvas.style.display = "block";
+        this.isRunning = true;
+        this.gameLoop();
+      }
+
+      gameLoop() {
+        if (!this.isRunning) return;
+
+        this.update();
+        this.draw();
+        requestAnimationFrame(() => this.gameLoop());
+      }
+
+      update() {}
+
+      draw() {
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+      }
+    }
+
+    class Player {
+      constructor(x, y) {
+        this.x = x;
+        this.y = y;
+      }
+
+      update() {}
+
+      draw(ctx) {}
+    }
+
+    const game = new Game();
+  </script>
+</body>
+</html>
