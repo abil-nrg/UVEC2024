@@ -31,7 +31,10 @@ body {
     justify-content: center;
     align-items: center;
     border: 1px solid #ccc;
+    font-size: 1.5em; /* Adjust this value to make emojis bigger */
+    overflow: hidden; /* Ensure no overflow if emojis are too big */
 }
+
 
 #timeDisplay {
     position: absolute; /* Positioning relative to the body */

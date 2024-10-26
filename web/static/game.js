@@ -19,7 +19,7 @@ function parseColor(colorString) {
 // Create the grid and render items
 function createGrid(data) {
     const gridContainer = document.getElementById('grid');
-
+    gridContainer.innerHTML = '';
     for (let row = 0; row < n; row++) {
         for (let col = 0; col < m; col++) {
             const cell = document.createElement('div');
@@ -76,7 +76,7 @@ function drawItems(data) {
         const tunnel = data.tunnel; // Already an object
         const tunnelIndex = tunnel.y * m + tunnel.x; // Calculate index for grid
         const tunnelCell = cells[tunnelIndex];
-        tunnelCell.style.backgroundColor = 'purple'; // Set color for tunnel
+        tunnelCell.style.backgroundColor = 'white'; // Set color for tunnel
         tunnelCell.textContent = "🕳️"; 
     }
 
@@ -99,24 +99,18 @@ function handleCellClick(event) {
     console.log('Clicked: ', x, ', ', y);
 
     // Send data to the server
-    fetch('https://your-server-endpoint.com/click', { // Replace with your server endpoint
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(clickData)
+    fetch('', {
+
     })
     .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
+
         return response.json();
     })
     .then(data => {
-        console.log('Success:', data); // Handle success
+        console.log('Success:', data); 
     })
     .catch(error => {
-        console.error('Error:', error); // Handle error
+        console.error('Error:', error); 
     });
 }
 
@@ -124,8 +118,11 @@ function handleCellClick(event) {
 
 async function initializeBoard() {
     const data = await fetch_board();
-    console.log(data)
+    console.log(data);
     createGrid(data); 
+    setTimeout(() => {
+        initializeBoard();
+    }, 1000);
 }
 
 initializeBoard();

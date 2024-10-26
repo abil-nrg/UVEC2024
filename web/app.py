@@ -65,5 +65,19 @@ def fetch_board_data_by_game_id(game_id):
     except Exception as e:
         return {}
 
+@app.route("/set_new_board/<game_id>", methods=["POST"])
+def set_new_board(game_id):
+    try: 
+        # Get the new board data from the request
+        new_board = request.json  # Get the JSON data sent in the request
+        if game_id not in games:
+            return jsonify({"error": "Game not found"}), 404
+        
+        # Update the game's board with the new data
+        games[game_id]["board"] = new_board
+        return jsonify({"message": "Board updated successfully"}), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 400  # General error
+
 if __name__ == '__main__':
     app.run(port=8080, debug=True)
