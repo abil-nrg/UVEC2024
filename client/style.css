@@ -1,0 +1,44 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+#grid {
+    display: grid;
+    grid-template-columns: repeat(15, 50px); /* 12 columns */
+    grid-template-rows: repeat(12, 50px);    /* 9 rows */
+    gap: 2px;
+}
+
+#title {
+    position: absolute; /* Positioning on top of the grid */
+    top: 10px; /* Distance from the top */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust for perfect centering */
+    font-size: 32px; /* Adjust font size */
+    color: #333; /* Title color */
+    z-index: 10; /* Ensure it appears above the grid */
+}
+
+.cell {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ccc;
+}
+
+#timeDisplay {
+    position: absolute; /* Positioning relative to the body */
+    top: 10px; /* Distance from the top */
+    right: 10px; /* Distance from the right */
+    font-size: 24px;
+    background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent background */
+    padding: 5px;   
+    border-radius: 5px; /* Rounded corners */
+}
