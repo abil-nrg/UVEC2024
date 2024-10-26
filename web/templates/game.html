@@ -1,1 +1,19 @@
-<p>empty</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cats on Grid</title>
+    <link rel="stylesheet" href="{{ url_for("static", filename="style.css") }}">
+</head>
+<body>
+    <div id="title">Cats on Grid</div>
+    <div id="grid"></div>
+    <div id="timeDisplay"></div> 
+    <script>
+        // Pass the game_id to a global variable for use in game.js
+        const game_id = "{{ game_id }}"; 
+    </script>
+    <script src="{{ url_for("static", filename="game.js") }}"></script>
+</body>
+</html>
