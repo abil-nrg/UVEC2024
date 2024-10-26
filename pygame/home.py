@@ -6,4 +6,4 @@ class Home:
         self.y = y
         self.size = size
     def get_area(self):
-        return pygame.Rect(self.x, self.y, self.size, self.size)
+        return pygame.Rect(self.x-self.size/2, self.y-self.size/2, self.size, self.size)
