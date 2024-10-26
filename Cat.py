@@ -1,24 +1,6 @@
 import pygame
 import random
 from colours import *  
-class Cat:
-    def __init__(self, colour, direction, x, y):
-        self.colour = colour
-        self.direction = direction
-        self.x = x
-        self.y = y
-    def load_image(self):
-        image_path = f"./images/cat_{self.colour}.png"
-        try:
-            image = pygame.image.load(image_path)
-            return image
-        except pygame.error:
-            print(f"Could not load image for colour: {self.colour}")
-            return None
-
-    def draw(self, screen):
-        if self.image:
-            screen.blit(self.image, (self.x, self.y))
 
 class Cat:
 
