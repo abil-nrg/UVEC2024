@@ -1,0 +1,10 @@
+{"cats": [{"colour": "(0, 0, 255)", "direction": "r", "x": 50, "y": 50, "size": 20},
+    {"colour": "(0, 255, 0)", "direction": "d", "x": 250, "y": 50, "size": 20}],
+"homes": [
+    {"colour": "(0, 0, 255)", "x": 1000, "y": 50, "size": 40},
+    {"colour": "(0, 255, 255)", "x": 400, "y": 50, "size": 40}],
+"intersections": [{"x": 800, "y": 50, "possible_direction": ["r", "d"], "current_direction": "d", "user": "None", "size": 40}],
+"tunnel": "{'x': 50, 'y': 50, 'size': 50}",
+"ticks_since_last_cat": 60,
+"time": 50
+}
