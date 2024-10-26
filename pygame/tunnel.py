@@ -1,6 +1,6 @@
 import pygame, json
 class Tunnel:
-    def __init__(self, x, y, size=50):
+    def __init__(self, x, y, size=1):
         self.x = x
         self.y = y
         self.size = size

@@ -1,6 +1,6 @@
 import pygame, json
 class Cat:
-    def __init__(self, colour, direction, x, y, size = 20):
+    def __init__(self, colour, direction, x, y, size = 1):
         self.colour = colour
         self.direction = direction
         self.x = x

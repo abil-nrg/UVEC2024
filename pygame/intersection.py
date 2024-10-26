@@ -1,6 +1,6 @@
 import pygame, json
 class Intersection:
-    def __init__(self, x, y, possible_direction, current_direction, user=None, size=40):
+    def __init__(self, x, y, possible_direction, current_direction, user=None, size=1):
         self.x = x
         self.y = y
         self.possible_direction = possible_direction
