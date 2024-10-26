@@ -1,18 +1,34 @@
+// const data = {
+//     "cats": [
+//         {"colour": "(0, 0, 255)", "direction": "r", "x": 1, "y": 1, "size": 20},
+//         {"colour": "(0, 255, 0)", "direction": "d", "x": 5, "y": 1, "size": 20}
+//     ],
+//     "homes": [
+//         {"colour": "(0, 0, 255)", "x": 10, "y": 1, "size": 40},
+//         {"colour": "(0, 255, 255)", "x": 4, "y": 1, "size": 40}
+//     ],
+//     "intersections": [
+//         {"x": 8, "y": 1, "possible_direction": ["r", "d"], "current_direction": "d", "user": "None", "size": 40}
+//     ],
+//     "tunnel": {"x": 1, "y": 1, "size": 50}, // Changed to object
+//     "ticks_since_last_cat": 60,
+//     "time": 50
+// };
+
 const data = {
     "cats": [
-        {"colour": "(0, 0, 255)", "direction": "r", "x": 1, "y": 1, "size": 20},
-        {"colour": "(0, 255, 0)", "direction": "d", "x": 5, "y": 1, "size": 20}
+        {"colour": "(0, 0, 255)", "direction": "r", "x": 2, "y": 5},
     ],
     "homes": [
-        {"colour": "(0, 0, 255)", "x": 10, "y": 1, "size": 40},
-        {"colour": "(0, 255, 255)", "x": 4, "y": 1, "size": 40}
+        {"colour": "(0, 0, 255)", "x": 7, "y": 1},
+        {"colour": "(0, 255, 255)", "x": 7, "y": 10}
     ],
     "intersections": [
-        {"x": 8, "y": 1, "possible_direction": ["r", "d"], "current_direction": "d", "user": "None", "size": 40}
+        {"x": 7, "y": 5, "possible_direction": ["u", "d"], "current_direction": "d", "user": "None"}
     ],
-    "tunnel": {"x": 1, "y": 1, "size": 50}, // Changed to object
-    "ticks_since_last_cat": 60,
-    "time": 50
+    "tunnel": {"x": 1, "y": 5},
+    "ticks_since_last_cat": 0,
+    "time": 0
 };
 
 // Grid dimensions
@@ -46,6 +62,12 @@ function createGrid() {
 
 function drawItems() {
     const cells = document.querySelectorAll('.cell');
+    const direction_to_arrow = {
+        "u": "⇧",
+        "d": "⇩",
+        "l": "⇦",
+        "r": "⇨"
+    }
 
     // Draw cats
     data.cats.forEach(cat => {
@@ -53,7 +75,7 @@ function drawItems() {
         const cell = cells[index];
         const [r, g, b] = parseColor(cat.colour);
         cell.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
-        cell.textContent = "C"; // Optional: Display a "C" for cat
+        cell.textContent = "🐱" + direction_to_arrow[cat.direction];
     });
 
     // Draw homes
@@ -62,7 +84,7 @@ function drawItems() {
         const cell = cells[index];
         const [r, g, b] = parseColor(home.colour);
         cell.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
-        cell.textContent = "H"; // Optional: Display an "H" for home
+        cell.textContent = "🏠";
     });
 
     // Draw intersections
@@ -70,7 +92,7 @@ function drawItems() {
         const index = intersection.y * m + intersection.x; // Calculate index for grid
         const cell = cells[index];
         cell.style.backgroundColor = 'yellow'; // Set color for intersections
-        cell.textContent = "I"; // Optional: Display an "I" for intersection
+        cell.textContent = direction_to_arrow[intersection.current_direction];
     });
 
     // Draw tunnel
@@ -78,7 +100,7 @@ function drawItems() {
     const tunnelIndex = tunnel.y * m + tunnel.x; // Calculate index for grid
     const tunnelCell = cells[tunnelIndex];
     tunnelCell.style.backgroundColor = 'purple'; // Set color for tunnel
-    tunnelCell.textContent = "T"; // Optional: Display a "T" for tunnel
+    tunnelCell.textContent = "🕳️"; // Optional: Display a "T" for tunnel
 }
 
 function displayTime() {
